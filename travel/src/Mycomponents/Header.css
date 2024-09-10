@@ -1,0 +1,37 @@
+.navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin:0 auto;
+  } 
+  
+  .navbar {
+    padding: 14px 16px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 150px 0 rgba(49, 255, 231, 0.984);
+    height: 40px;
+    width:auto;
+    border-radius: 4px;
+  }
+  
+  .btn{
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid #04AA6D;
+    color: #04AA6D;
+    border-radius: 10px;
+    float:right;
+  }
+  
+  .btn:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 150px 0 rgba(255, 255, 255, 0.984);
+  }
+  
+  .logo-name{
+    font-family: cursive;
+    margin: 0 auto;
+    margin-top: -10px; 
+  }
