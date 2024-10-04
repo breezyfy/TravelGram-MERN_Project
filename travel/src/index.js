@@ -22,6 +22,8 @@ import './index.css';
 import App from './App.js';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from 'react-router-dom';
+import 'leaflet/dist/leaflet.css';
+
 
 const queryClient = new QueryClient({
 	defaultOptions: {
