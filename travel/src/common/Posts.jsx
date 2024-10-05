@@ -61,7 +61,7 @@ const Posts = ({feedType,username,userId}) => {
 			)}
 			{!isLoading && posts?.length === 0 && <p className='text-center my-4'>No posts in this tab. Switch 👻</p>}
 			{!isLoading && posts && (
-				<div className='grid grid-cols-2 gap-2' >
+				<div className='grid grid-cols-1  sm:grid-cols-1  md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-2' >
 					{posts.map((post) => (
 						<Post key={post._id} post={post} />
 					))}
