@@ -2,14 +2,16 @@ import express, { urlencoded } from "express";
 import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
 import postRoutes from "./routes/post.route.js";
+import communityRoutes from "./routes/community.route.js";
 import notificationRoutes from "./routes/notification.route.js";
 import {configDotenv} from "dotenv";
 import connectMongoDB from "./db/connectMongoDB.js";
 import cookieParser from "cookie-parser";
 import {v2 as cloudinary} from 'cloudinary';
-
+import cors from 'cors';
+import travelRoutes from './routes/travel.route.js';
+import travelPackageRoutes from './routes/travelpack.route.js';
 configDotenv();
-
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -28,14 +30,14 @@ app.use(express.json({limit:"5mb"})); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser());
 
-
+app.use(cors());
 app.use("/api/auth",authRoutes);
 app.use("/api/users",userRoutes);
 app.use("/api/posts",postRoutes);
+app.use("/api/community",communityRoutes);
 app.use("/api/notifications",notificationRoutes);
-
-
-
+app.use('/api/travel', travelRoutes);
+app.use('/api/packages', travelPackageRoutes);
 
 
 // connectMongoDB();

@@ -13,13 +13,15 @@ import { Toaster } from 'react-hot-toast';
 import { useQuery } from '@tanstack/react-query';
 import LoadingSpinner from './common/LoadingSpinner.jsx';
 import Travelpage from './Mycomponents/travelpage.jsx';
-import LocationDetails from './Mycomponents/LocationDetails.jsx';
 import HariharFort from './Mycomponents/HariharFort.jsx'; // Import the LocationDetails component
 import ChadarTrek from './Mycomponents/ChadarTrek.jsx';
 import ValleyOfFlowers from './Mycomponents/ValleyOfFlowers.jsx';
 import Goa from './Mycomponents/Goa.jsx';
 import Manali from './Mycomponents/Manali.jsx';
 import Kochi from './Mycomponents/Kochi.jsx';
+import CommunityPage from './Mycomponents/Community.jsx';
+import TravelDetails from './Mycomponents/travelDetails.js';
+import TravelPackageDetails from './Mycomponents/travelpacks/travelPackagedetails.jsx';
 
 function App() {
   const location = useLocation();
@@ -66,13 +68,19 @@ function App() {
           <Route path="/Notifications" element={authUser ? <NotificationPage /> : <Navigate to="/login" />} />
           <Route path="/Explore" element={authUser ? <Explore /> : <Navigate to="/login" />} />
           <Route path="/travel" element={authUser ? <Travelpage />: <Navigate to="/login" />} />
-          <Route path="/travel/:id" element={authUser ?<LocationDetails />: <Navigate to="/login" />} /> {/* Add route for location details */}
+          <Route path="/community" element={authUser ? <CommunityPage userId={authUser.id}/> : <Navigate to ="/login" />}/>
+          <Route path="/travel/:id" element={authUser ?<TravelDetails  />: <Navigate to="/login" />} /> {/* Add route for location details */}
           <Route path="/travel/harihar-fort" element={authUser ?<HariharFort />: <Navigate to="/login" />} />
           <Route path="/travel/chadar-trek" element={authUser ?<ChadarTrek />: <Navigate to="/login" />} />
           <Route path="/travel/valley-of-flowers" element={authUser ?<ValleyOfFlowers />: <Navigate to="/login" />} />
           <Route path="/travel/goa" element={authUser ?<Goa />: <Navigate to="/login" />}/>
           <Route path="/travel/manali" element={authUser ?<Manali />: <Navigate to="/login" />} />
           <Route path="/travel/kochi" element={authUser ?<Kochi />: <Navigate to="/login" />} />
+          <Route path="/community/:communityId" element={authUser ? <CommunityPage userId={authUser.id}/> : <Navigate to ="/login" />}/>
+          <Route path="/community/:userId" element={authUser ? <CommunityPage userId={authUser.id}/> : <Navigate to ="/login" />}/>
+          <Route path="/packages/:id" element={authUser ?<TravelPackageDetails />: <Navigate to="/login" />} /> 
+          {/* <Route path="/packages/goa-beach-getaway" element={authUser ?<GoaBeachgetaway />: <Navigate to="/login" />} /> */}
+          <Route path="/Explore/:id" element={<Explore />} />
         </Routes>
         {!hideSidebarAndRightPanel && <RightPanel />}
         <Toaster />

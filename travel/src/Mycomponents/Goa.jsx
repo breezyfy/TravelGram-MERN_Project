@@ -10,6 +10,7 @@ const Goa = () => {
         blend of history, spirituality, and adventure. From relaxing on the sandy shores to exploring
         lush landscapes and heritage sites, Goa is a destination that caters to every traveler's desire.
       </p>
+
       <div className="flex justify-center mb-6">
         <img
           src="/posts/Goa2.jpg" // Change this path as needed

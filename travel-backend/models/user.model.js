@@ -59,6 +59,13 @@ const userSchema = new mongoose.Schema(
 				default: [],
 			},
 		],
+		joinedCommunity: [
+			{
+			  type: mongoose.Schema.Types.ObjectId,
+			  ref: 'Community',
+			  default: [],
+			},
+		  ],
 	},
 	{ timestamps: true }
 );
